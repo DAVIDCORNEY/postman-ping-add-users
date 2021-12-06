@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "e6c4325b-65cd-4989-ac09-13c86bb43cf4",
+		"name": "Ping Create User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CREATE Population (Add User)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwtToken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\" : \"PKCE Test Population\",\n  \"description\" : \"PKCE Test Population\"\n}"
+				},
+				"url": {
+					"raw": "{{apiPath}}/environments/{{envID}}/populations",
+					"host": [
+						"{{apiPath}}"
+					],
+					"path": [
+						"environments",
+						"{{envID}}",
+						"populations"
+					]
+				},
+				"description": "By design, PingOne requests solely comprise this collection. For complete documentation, direct a browser to <a href='https://apidocs.pingidentity.com/pingone/platform/v1/api/'>apidocs.pingidentity.com</a>."
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE User (Add User)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwtToken}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"david.corney@coveainsurance.co.uk\",\n    \"name\": {\n        \"given\": \"David\",\n        \"family\": \"Corney\"\n    },\n    \"population\": {\n        \"id\": \"{{popID}}\"\n    },\n    \"username\": \"davidcorney\",\n    \"department\": \"digital\",\n    \"locales\": [\"Sydney\", \"London\"]\n}"
+				},
+				"url": {
+					"raw": "{{apiPath}}/environments/{{envID}}/users",
+					"host": [
+						"{{apiPath}}"
+					],
+					"path": [
+						"environments",
+						"{{envID}}",
+						"users"
+					]
+				},
+				"description": "By design, PingOne requests solely comprise this collection. For complete documentation, direct a browser to <a href='https://apidocs.pingidentity.com/pingone/platform/v1/api/'>apidocs.pingidentity.com</a>."
+			},
+			"response": []
+		}
+	]
+}
